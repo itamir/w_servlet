@@ -26,9 +26,9 @@ public class SegurancaFilter implements Filter {
 		
 		Usuario usuario = (Usuario)
 				req.getSession().getAttribute("usuario");
-		//caso o usuário não esteja logado - sem usuário em sessão
+		//caso o usuï¿½rio nï¿½o esteja logado - sem usuï¿½rio em sessï¿½o
 		if (usuario == null) 
-			res.sendRedirect("/AulaServlet2019/login.jsp");
+			res.sendRedirect("/AulaServlet2021/login.jsp");
 		else 
 			chain.doFilter(request, response);
 	}

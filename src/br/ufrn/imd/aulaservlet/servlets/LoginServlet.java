@@ -24,9 +24,9 @@ public class LoginServlet extends HttpServlet{
 			Usuario u = new Usuario();
 			u.setNome("itamir");
 			req.getSession().setAttribute("usuario", u);
-			resp.sendRedirect("/AulaServlet2019/paginas"
+			resp.sendRedirect("/AulaServlet2021/paginas"
 					+ "/conteudo.jsp");
 		} else
-			resp.sendRedirect("/AulaServlet2019/login.jsp");		
+			resp.sendRedirect("/AulaServlet2021/login.jsp");		
 	}
 }
