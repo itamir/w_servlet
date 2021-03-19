@@ -17,25 +17,20 @@ import br.ufrn.imd.aulaservlet.dominio.Usuario;
 @WebFilter("/paginas/*")
 public class SegurancaFilter implements Filter {
 
-	public void doFilter(ServletRequest request, 
-			ServletResponse response, FilterChain chain)
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse res = (HttpServletResponse) response;
-		
-		Usuario usuario = (Usuario)
-				req.getSession().getAttribute("usuario");
-		//caso o usu�rio n�o esteja logado - sem usu�rio em sess�o
-		if (usuario == null) 
+
+		Usuario usuario = (Usuario) req.getSession().getAttribute("usuario");
+		if (usuario == null)
 			res.sendRedirect("/AulaServlet2021/login.jsp");
-		else 
+		else
 			chain.doFilter(request, response);
 	}
 
-	public void init(FilterConfig filterConfig) throws 
-	ServletException {
-	}
-	public void destroy() {
-	}
+	public void init(FilterConfig filterConfig) throws ServletException { }
+
+	public void destroy() { }
 }
